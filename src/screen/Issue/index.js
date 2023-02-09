@@ -6,9 +6,37 @@ import CodeBox from "../../components/codeBox";
 import { codeSmallSx } from "./style";
 import { CricleIcon } from "../../components/icon/cricleIcon";
 import { RemoveError } from "../../components/removeError/removeError";
-export default function CodeSmall(props) {
 
-  const {setOpen} = props;
+const boxData = [
+  {
+    id: "1",
+    boxText: "Remove this commented out code",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "2",
+
+    boxText: "Remove this unused import of 'RequireAuth'.",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "3",
+    boxText: "Rename this file to 'graphqlReq'",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "4",
+    boxText: "Remove this unused import of 'config'.",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+];
+
+export default function CodeSmall(props) {
+  const { setOpen } = props;
 
   const [active, setActive] = useState(false);
   const [selected, setSelected] = useState("");
@@ -17,48 +45,16 @@ export default function CodeSmall(props) {
     setActive(!active);
     setSelected(i);
   };
-
-  
-  const boxData = [
-    {
-      id: "1",
-      boxText: "Remove this commented out code",
-      icon: <CricleIcon />,
-      subText: "Code Smell",
-    },
-    {
-      id: "2",
-
-      boxText: "Remove this unused import of 'RequireAuth'.",
-      icon: <CricleIcon />,
-      subText: "Code Smell",
-    },
-    {
-      id: "3",
-      boxText: "Rename this file to 'graphqlReq'",
-      icon: <CricleIcon />,
-      subText: "Code Smell",
-    },
-    {
-      id: "4",
-      boxText: "Remove this unused import of 'config'.",
-      icon: <CricleIcon />,
-      subText: "Code Smell",
-    },
-  ];
-
-  
-  const handleRoute=()=>{
-    setOpen(true)
-  }
-
+  const handleRoute = () => {
+    setOpen(true);
+  };
 
   return (
     <Grid container>
       <Grid item xs={12} sm={12} md={12} lg={3}>
         <Box sx={codeSmallSx.textBoxSx}>
-          <Box sx={codeSmallSx.boxSx} onClick={()=>handleRoute()}>
-            <NavIcon/>
+          <Box sx={codeSmallSx.boxSx} onClick={() => handleRoute()}>
+            <NavIcon />
           </Box>
           <Box sx={codeSmallSx.codeSx}>
             {boxData.map((val, i) => (

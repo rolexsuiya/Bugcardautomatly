@@ -46,9 +46,7 @@ export const chartStyle = {
   },
 
   horizandalBar: {
-    border: 1,
-    borderColor: "#707070",
-    width: "70%",
+    borderBottom: "1.5px solid #707070",
   },
 
   subTitle2: {

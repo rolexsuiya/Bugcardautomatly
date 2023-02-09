@@ -1,10 +1,10 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
 import { makeStyles } from "@mui/styles";
+import React from "react";
 import { navTabs } from "./style";
 
 const useStyles = makeStyles((theme) => ({
@@ -33,9 +33,7 @@ export const DataTabs = ({ tabs = [], activeTab, handleChangeTab }) => {
     <div>
       <Box>
         <TabContext value={activeTab}>
-          <Box
-            sx={navTabs.tabSx}
-          >
+          <Box sx={navTabs.tabSx}>
             <TabList
               className={classes.underTab}
               onChange={handleChange}

@@ -17,7 +17,6 @@ export const codeSmallSx = {
     },
     mapBoxSx:{
         marginBottom:"12px",
-        // background:"red"
     },
     activeBox:{
         marginBottom:"12px",

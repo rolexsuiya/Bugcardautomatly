@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Grid from "@mui/material/Grid";
 import { Box, Paper, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import { Stack } from "@mui/system";
+import React from "react";
 import { RenderLineChart } from "../lineChart";
 import { SelectInput } from "../select";
-import { Stack } from "@mui/system";
 import { chartStyle } from "./style";
 
 const data = [
@@ -15,12 +15,23 @@ const data = [
   { name: "Thu 25", Bugs: 400, CodeSmells: 400, Vulnerabilities: 700 },
 ];
 
+const midcardValue = {
+  number: "18.6%",
+  subTitle: "Duplications on 28k Lines",
+  subNum: "40",
+  dupText: "Duplicated Blocks",
+};
+
+const chartCard = {
+  title: "Activity",
+};
+
 export const Chart = () => {
   return (
     <>
-      <Grid container spacing={1.5}>
+      <Grid container spacing={1.8}>
         {/*Dublicated  Blocks */}
-        <Grid item xs={12} sm={3} md={4} lg={3} mt={0}>
+        <Grid item xs={12} sm={3} md={4} lg={3}>
           <Paper elevation={2} sx={chartStyle.rediesSX}>
             <Stack spacing={2} p={3}>
               <Box>
@@ -30,21 +41,25 @@ export const Chart = () => {
               </Box>
 
               <Box>
-                <Typography sx={chartStyle.percetSx}>18.6%</Typography>
+                <Typography sx={chartStyle.percetSx}>
+                  {midcardValue.number}
+                </Typography>
               </Box>
 
               <Box>
                 <Typography sx={chartStyle.subTitle}>
-                  Duplications on 28k Lines
+                  {midcardValue.subTitle}
                 </Typography>
               </Box>
               <Box sx={chartStyle.horizandalBar}></Box>
               <Box>
-                <Typography sx={chartStyle.subTitle2}>40</Typography>
+                <Typography sx={chartStyle.subTitle2}>
+                  {midcardValue.subNum}
+                </Typography>
               </Box>
               <Box>
                 <Typography sx={chartStyle.subTitle}>
-                  Duplicated Blocks
+                  {midcardValue.dupText}
                 </Typography>
               </Box>
             </Stack>
@@ -53,7 +68,7 @@ export const Chart = () => {
 
         {/*Activity Chats */}
         <Grid item xs={12} sm={9} md={8} lg={6}>
-          <Paper sx={chartStyle.chartSX}  elevation={2}>
+          <Paper sx={chartStyle.chartSX} elevation={2}>
             <Box>
               <Grid
                 height={"100%"}
@@ -61,8 +76,7 @@ export const Chart = () => {
                 justifyContent={"space-between"}
                 p={2}
               >
-                <Typography fontWeight={600}>Activity</Typography>
-
+                <Typography fontWeight={600}>{chartCard.title}</Typography>
                 <SelectInput />
               </Grid>
               <Box height={{ xs: "70vw", sm: "33vw", md: "14vw" }}>

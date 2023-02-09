@@ -22,7 +22,6 @@ export const filterStyle = {
   headHorder: {
     borderBottom: 1.3,
     borderColor: "#CBCBCB",
-    // marginTop: 2,
     padding: "10px",
   },
   mailBox: {

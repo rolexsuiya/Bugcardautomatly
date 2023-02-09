@@ -13,12 +13,10 @@ export const dropSx = {
     },
     menuSx:{
         width:"200px",
-        // padding:"10px 50px 10px 20px",
         display:"flex",
         gap:"20px"
     },
     profileSx:{
         color:"#848484",
-        // backgroundColor:"white"
     }
 }

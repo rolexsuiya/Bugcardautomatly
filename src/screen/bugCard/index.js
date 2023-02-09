@@ -7,7 +7,6 @@ import { LockIcon } from "../../components/icon";
 import { ProtectIcon } from "../../components/icon";
 import { ModeIcon } from "../../components/icon";
 import { NavIcon } from "../../components/icon/navIcon";
-// import NavBar from "../../components/navBar";
 import { bugStyle } from "./style";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { useState } from "react";
@@ -17,94 +16,92 @@ import DownloadIcon from "@mui/icons-material/Download";
 import Issues from "../../components/issues/issues";
 import CodeSmall from "../Issue";
 import NavBar from "../../components/navBar";
+
+const navData = {
+  icons: <NavIcon />,
+  headTitle: "Project Name",
+  downloadIcon: <DownloadIcon sx={bugStyle.iconSx} />,
+  homeIcon: <HomeOutlinedIcon sx={bugStyle.iconSx} />,
+  downArrow: <DropDown />,
+};
+
+const verData = {
+  overView: "OverView Name V.2",
+};
+
+const issueData = {
+  issue: "Issue Name V.3",
+};
+
+const cardData = [
+  {
+    count: "40",
+    icon: <BugIcon />,
+    subText: "Bugs",
+    footerText: "Reliability",
+    avatar: "C",
+    color: {
+      numberColor: "#BF0F9C",
+    },
+  },
+  {
+    count: "0",
+    icon: <LockIcon />,
+    subText: "Vulnerabilities",
+    footerText: "Security",
+    color: {
+      backgroundColor: "#21E067",
+      color: "#D5F9E9",
+      numberColor: "#4A0FBF",
+    },
+    avatar: "A",
+  },
+  {
+    count: "0",
+    icon: <ProtectIcon />,
+    subText: "Security Hotspots",
+    footerText: "Security Review",
+    avatar: "A",
+    color: {
+      backgroundColor: "#21E067",
+      color: "#D5F9E9",
+      numberColor: "#0F9CBF",
+    },
+    data: "-",
+    rightText: "Reviewed",
+  },
+  {
+    count: "5d 4h",
+    subText: "Debt",
+    footerText: "Maintainability",
+    color: {
+      backgroundColor: "#21E067",
+      color: "#D5F9E9",
+      numberColor: "#0F9CBF",
+    },
+    avatar: "A",
+    data: <ModeIcon />,
+    rightText: "Code Smells",
+    number: "672",
+  },
+];
+
 const BugCard = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [open, setOpen] = useState(true);
 
-  const navData = {
-    icons: <NavIcon />,
-    headTitle: "Project Name",
-    downloadIcon: <DownloadIcon sx={bugStyle.iconSx} />,
-    homeIcon: <HomeOutlinedIcon sx={bugStyle.iconSx} />,
-    downArrow: <DropDown />,
-  };
-
-  const verData = {
-    overView: "OverView Name V.2",
-  };
-
-  const issueData = {
-    issue: "Issue Name V.3",
-  };
-
-  const cardData = [
-    {
-      count: "40",
-      icon: <BugIcon />,
-      subText: "Bugs",
-      footerText: "Reliability",
-      avatar: "C",
-      color: {
-        numberColor: "#BF0F9C",
-      },
-    },
-    {
-      count: "0",
-      icon: <LockIcon />,
-      subText: "Vulnerabilities",
-      footerText: "Security",
-      color: {
-        backgroundColor: "#21E067",
-        color: "#D5F9E9",
-        numberColor: "#4A0FBF",
-      },
-      avatar: "A",
-    },
-    {
-      count: "0",
-      icon: <ProtectIcon />,
-      subText: "Security Hotspots",
-      footerText: "Security Review",
-      avatar: "A",
-      color: {
-        backgroundColor: "#21E067",
-        color: "#D5F9E9",
-        numberColor: "#0F9CBF",
-      },
-      data: "-",
-      rightText: "Reviewed",
-    },
-    {
-      count: "5d 4h",
-      subText: "Debt",
-      footerText: "Maintainability",
-      color: {
-        backgroundColor: "#21E067",
-        color: "#D5F9E9",
-        numberColor: "#0F9CBF",
-      },
-      avatar: "A",
-      data: <ModeIcon />,
-      rightText: "Code Smells",
-      number: "672",
-    },
-  ];
   const handleClick = () => {
     setOpen(false);
   };
   const tabs = [
     {
-      label: (
-        <Typography sx={bugStyle.typeSx}>
-          Overview
-        </Typography>
-      ),
+      label: <Typography sx={bugStyle.typeSx}>Overview</Typography>,
       value: 1,
       body: (
         <div>
           <VerBar verData={verData} />
           <Box sx={bugStyle.outSX}>
-            <Grid container spacing={1.5}>
+            <Grid container spacing={1.8}>
               {cardData.map((val, i) => (
                 <Grid item xs={12} sm={6} md={6} lg={3}>
                   <StatCard
@@ -120,7 +117,7 @@ const BugCard = () => {
                   />
                 </Grid>
               ))}
-              <Grid item xs={12}>
+              <Grid item xs={12} mt={1}>
                 <Chart />
               </Grid>
             </Grid>
@@ -129,21 +126,17 @@ const BugCard = () => {
       ),
     },
     {
-      label: (
-        <Typography
-          sx={bugStyle.typeSx}
-
-        >
-          Issues
-        </Typography>
-      ),
+      label: <Typography sx={bugStyle.typeSx}>Issues</Typography>,
       value: 2,
       body: (
         <div>
           <VerBar issueData={issueData} />
           <Box>
-            
-            {open ? <Issues handleClick={handleClick} /> : <CodeSmall setOpen={setOpen}/>}
+            {open ? (
+              <Issues handleClick={handleClick} />
+            ) : (
+              <CodeSmall setOpen={setOpen} />
+            )}
           </Box>
         </div>
       ),
@@ -153,7 +146,6 @@ const BugCard = () => {
   return (
     <>
       <Box>
-        {/* <NavBar/> */}
         <NavBar navData={navData} />
         <DataTabs
           tabs={tabs}

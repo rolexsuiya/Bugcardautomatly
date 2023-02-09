@@ -1,3 +1,6 @@
+import LockOpenRoundedIcon from "@mui/icons-material/LockOpenRounded";
+import PestControlSharpIcon from "@mui/icons-material/PestControlSharp";
+import SportsSoccerOutlinedIcon from "@mui/icons-material/SportsSoccerOutlined";
 import {
   Button,
   Grid,
@@ -10,12 +13,9 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import PestControlSharpIcon from "@mui/icons-material/PestControlSharp";
-import LockOpenRoundedIcon from "@mui/icons-material/LockOpenRounded";
-import SportsSoccerOutlinedIcon from "@mui/icons-material/SportsSoccerOutlined";
 import { ListNested } from "../listNested/listNested";
-import { filterStyle } from "./style";
 import { listStyle } from "../listNested/style";
+import { filterStyle } from "./style";
 
 const Type = [
   {
@@ -70,7 +70,11 @@ const Types = () => {
         <ListItemButton sx={{ pl: 4 }}>
           <ListItemIcon sx={filterStyle.itemText}>{item.icon}</ListItemIcon>
           <ListItemText sx={filterStyle.itemText} primary={item.titlePrimary} />
-          <Typography sx={filterStyle.itemText} justifySelf={"self-end"} color={"#848484"}>
+          <Typography
+            sx={filterStyle.itemText}
+            justifySelf={"self-end"}
+            color={"#848484"}
+          >
             {item.count}
           </Typography>
         </ListItemButton>
@@ -117,14 +121,14 @@ export const Filter = () => {
                   variant="contained"
                   disabled
                   size="small"
-                  sx={{ textTransform: "none",fontSize:"12px" }}
+                  sx={{ textTransform: "none", fontSize: "12px" }}
                 >
                   My Issues
                 </Button>
                 <Button
                   variant="contained"
                   size="small"
-                  sx={{ textTransform: "none",fontSize:"12px" }}
+                  sx={{ textTransform: "none", fontSize: "12px" }}
                 >
                   All
                 </Button>
@@ -141,7 +145,11 @@ export const Filter = () => {
             />
           </Box>
           <Box>
-            <ListNested titlePrimary={"Severity"} sxTitle={filterStyle.tpeTxt} option={<Severitys />} />
+            <ListNested
+              titlePrimary={"Severity"}
+              sxTitle={filterStyle.tpeTxt}
+              option={<Severitys />}
+            />
           </Box>
         </Box>
       </Box>

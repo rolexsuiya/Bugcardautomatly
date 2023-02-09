@@ -1,18 +1,17 @@
 export const cardstyle = {
   cardSx: {
-   padding:"16px",
-  //  borderRadius: "10px"
+    padding: "16px",
   },
-  rediesSx:{
-    borderRadius: "10px"
+  rediesSx: {
+    borderRadius: "10px",
   },
-  stackSx:{
-    paddingBottom:"10px"
+  stackSx: {
+    paddingBottom: "10px",
   },
   boxSx: {
     display: "flex",
     gap: "8%",
-    whiteSpace: "nowrap"
+    whiteSpace: "nowrap",
   },
 
   cardAvater: {
@@ -24,7 +23,6 @@ export const cardstyle = {
   HeadText: {
     fontWeight: "600",
     fontSize: "16px",
-    
   },
 
   cardText: {
@@ -37,10 +35,8 @@ export const cardstyle = {
     padding: "8px",
     gap: "3%",
   },
-  numberSx:{
+  numberSx: {
     fontWeight: "600",
     fontSize: "28px",
-  
-
-  }
+  },
 };

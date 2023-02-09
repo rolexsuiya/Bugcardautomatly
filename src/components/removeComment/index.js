@@ -2,33 +2,26 @@ import { Box, Paper, Typography } from "@mui/material";
 import React from "react";
 import { removeStyle } from "./styles";
 import { ListNested } from "../listNested/listNested";
-import { useNavigate } from "react-router-dom";
-export const RemoveComment = ({ handleClick=()=>false,title = "Remove this commented out code" }) => {
-  let navigate = useNavigate();
 
-  // const handleClick = () => {
-  //   navigate("/issue");
-  // };
-  // const handleClick =() =>{
-  //   debugger
-  // }
+export const RemoveComment = ({ handleClick=()=>false,title = "Remove this commented out code" }) => {
+  
   return (
-    <Paper sx={removeStyle.paperBlock}>
+    <Box sx={removeStyle.paperBlock}>
       <Box sx={removeStyle.flexBlock} onClick={handleClick}>
         <Box>
-          <Typography color={"#18283E"} letterSpacing={0.5}>
+          <Typography sx={removeStyle.typeText}>
             {title}
           </Typography>
         </Box>
-        <Box sx={removeStyle.centerBlock} pr={2}>
+        <Box sx={removeStyle.centerBlock}>
           <Box sx={removeStyle.dotIcon}></Box>
-          <Typography style={removeStyle.lineText} pl={1}>
+          <Typography style={removeStyle.lineText}>
             L29
           </Typography>
         </Box>
       </Box>
 
-      <Box sx={removeStyle.centerBlock}>
+      <Box sx={removeStyle.centerBlockSX}>
         <Box sx={removeStyle.removeBottomBlock}>
           <SvgComponent />
           <ListNested
@@ -50,7 +43,7 @@ export const RemoveComment = ({ handleClick=()=>false,title = "Remove this comme
           <Box sx={removeStyle.dotIcon}></Box>
         </Box>
       </Box>
-    </Paper>
+    </Box>
   );
 };
 

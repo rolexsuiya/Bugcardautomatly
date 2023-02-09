@@ -1,12 +1,24 @@
 export const removeStyle = {
   paperBlock: {
-    padding: 1,
-    width: "96%",
+    background: "#FFFFFF 0% 0% no-repeat padding-box",
+    boxShadow: "0px 3px 6px #00000014",
+    border: "0.5px solid #CBCBCB",
+    borderRadius: "10px",
+    opacity: 1,
+    padding: "10px",
+    marginBottom:"20px"
   },
 
   centerBlock: {
     display: "flex",
     alignItems: "center",
+    gap:"8px"
+  },
+
+  centerBlockSX: {
+    display: "flex",
+    alignItems: "center",
+    gap:"8px"
   },
 
   dotIcon: {
@@ -23,23 +35,36 @@ export const removeStyle = {
   },
 
   lineText: {
-    fontSize: 14,
-    color: "#0063E7",
+    textAlign: "right",
+    fontSize: "12px",
+    letterSpacing: "0px",
+    color: "#3D4755",
+    opacity: 1,
+  },
+  typeText: {
+    textAlign: "left",
+    fontSize: "14px",
+    letterSpacing: "0px",
+    color: "#18283E",
+    opacity: 1,
   },
 
   removeBottomBlock: {
     display: "flex",
     alignItems: "center",
-    marginLeft: 2,
-    marginTop: 1,
+
   },
 
   codeSmellText: {
-    fontSize: 13,
     color: "#0063E7",
+    "& .MuiListItemText-primary":{
+      fontSize: "12px",
+
+    },
+
   },
-  
+
   dropList: {
-    height: "10px",
+    height: "8px",
   },
 };

@@ -1,16 +1,32 @@
 import { Grid, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import { removeStyle } from "./style";
-import BasicTabs from "./tabs";
+import { SideTabs } from "./tabs";
 
 const data = {
   title: "Remove this commented out code",
-  subTitle: 'Sections of code should not be commented out typescript:S125'
+  subTitle: 'Sections of code should not be commented out typescript:S125',
+  typeText:"Where is the issue?",
+  subText:"Where is the issue?"
 };
+
 export const RemoveError = () => {
 
-  
+  const [activeTab, setActiveTab] = useState(1);
+
+  const tabs = [
+    {
+        label: <Typography sx={removeStyle.typoLableSX} gutterBottom >{data.typeText}</Typography>,
+        value: 1,
+        body: <div><Box sx={removeStyle.indiseBox}>{data.subText}</Box></div>
+    },
+    {
+        label: <Typography sx={removeStyle.typoLableSX} gutterBottom >{data.typeText}</Typography>,
+        value: 2,
+        body: <div><Box sx={removeStyle.indiseBox}>{data.subText}</Box></div>
+    },
+]
   return (
     <>
     
@@ -20,11 +36,11 @@ export const RemoveError = () => {
             <Typography sx={removeStyle.subText}>{data.subTitle} </Typography>
           </Box>
 
-          <Paper sx={removeStyle.paperBlock}>
+          <Box sx={removeStyle.paperBlock}>
             <Box>
-              <BasicTabs />
+              <SideTabs tabs={tabs} activeTab={activeTab} handleChangeTab={(val) => setActiveTab(val)}/>
             </Box>
-          </Paper>
+          </Box>
         </Box>
     </>
   );

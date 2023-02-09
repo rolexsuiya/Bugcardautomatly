@@ -1,6 +1,7 @@
 export const issuesStyle = {
   rootBlock: {
-  
+    height:"100vh",
+    padding:"10px 20px",
     backgroundColor: "#F6F6F6",
   },
   paperBlock: {
@@ -10,15 +11,20 @@ export const issuesStyle = {
 
   iconOutlined: {
     display: "flex",
-    alignItems: "centrt",
-    p: 1.4,
+    alignItems: "center",
+    gap:"5px",
+    marginBottom:"10px"
+    // p: 1.4,
   },
 
   pathIcon: {
-    height: "2rem",
+    display: "flex",
+    width: "20px",
+    height: "30px",
     color: "#0063E7",
   },
   pathText: {
     color: "#0063E7",
+    fontSize:"14px"
   },
 };

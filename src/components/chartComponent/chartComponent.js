@@ -21,7 +21,7 @@ export const Chart = () => {
       <Grid container spacing={1.5}>
         {/*Dublicated  Blocks */}
         <Grid item xs={12} sm={3} md={4} lg={3} mt={0}>
-          <Paper elevation={2}>
+          <Paper elevation={2} sx={chartStyle.rediesSX}>
             <Stack spacing={2} p={3}>
               <Box>
                 <Box sx={chartStyle.cercleBoder}>
@@ -53,7 +53,7 @@ export const Chart = () => {
 
         {/*Activity Chats */}
         <Grid item xs={12} sm={9} md={8} lg={6}>
-          <Paper sx={{ width: "100%", height: "100%" }} elevation={2}>
+          <Paper sx={chartStyle.chartSX}  elevation={2}>
             <Box>
               <Grid
                 height={"100%"}

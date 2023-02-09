@@ -68,9 +68,9 @@ const Types = () => {
     <List component="div" disablePadding>
       {Type.map((item, key) => (
         <ListItemButton sx={{ pl: 4 }}>
-          <ListItemIcon>{item.icon}</ListItemIcon>
-          <ListItemText primary={item.titlePrimary} />
-          <Typography justifySelf={"self-end"} color={"#848484"}>
+          <ListItemIcon sx={filterStyle.itemText}>{item.icon}</ListItemIcon>
+          <ListItemText sx={filterStyle.itemText} primary={item.titlePrimary} />
+          <Typography sx={filterStyle.itemText} justifySelf={"self-end"} color={"#848484"}>
             {item.count}
           </Typography>
         </ListItemButton>
@@ -101,26 +101,48 @@ const Severitys = () => {
 export const Filter = () => {
   return (
     <>
-      <Grid container justifyContent={"space-between"} alignItems={"center"}>
-        <Grid item >
-          <Typography style={filterStyle.filterText}>Filters</Typography>
-        </Grid>
-        <Grid item>
-          <Stack direction="row" spacing={2} mr={2} mt={1}>
-            <Button variant="contained" disabled size="small" sx={{textTransform:"none"}} >
-            My Issues
-            </Button>
-            <Button variant="contained" size="small" sx={{textTransform:"none"}}>All</Button>
-          </Stack>
-        </Grid>
-      </Grid>
-      <Box sx={filterStyle.headHorder}></Box>
-      <Box>
-        <Box>
-          <ListNested titlePrimary={"Type"} option={<Types />} />
+      <Box sx={filterStyle.mailBox}>
+        <Box sx={filterStyle.headHorder}>
+          <Grid
+            container
+            justifyContent={"space-between"}
+            alignItems={"center"}
+          >
+            <Grid item>
+              <Typography style={filterStyle.filterText}>Filters</Typography>
+            </Grid>
+            <Grid item>
+              <Stack direction="row" spacing={2}>
+                <Button
+                  variant="contained"
+                  disabled
+                  size="small"
+                  sx={{ textTransform: "none",fontSize:"12px" }}
+                >
+                  My Issues
+                </Button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  sx={{ textTransform: "none",fontSize:"12px" }}
+                >
+                  All
+                </Button>
+              </Stack>
+            </Grid>
+          </Grid>
         </Box>
         <Box>
-          <ListNested titlePrimary={"Severity"} option={<Severitys />} />
+          <Box>
+            <ListNested
+              titlePrimary={"Type "}
+              option={<Types />}
+              sxTitle={filterStyle.tpeTxt}
+            />
+          </Box>
+          <Box>
+            <ListNested titlePrimary={"Severity"} sxTitle={filterStyle.tpeTxt} option={<Severitys />} />
+          </Box>
         </Box>
       </Box>
     </>

@@ -3,6 +3,14 @@ export const chartStyle = {
     backgroundColor: "#ffff",
     borderWidth: "2px",
   },
+  rediesSX:{
+    borderRadius: "10px",
+  },
+  chartSX:{
+    borderRadius: "10px",
+    width:"100%",
+    height:"100%"
+  },
   cercleBoder: {
     border: 1,
     borderColor: "#f3a953",

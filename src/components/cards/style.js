@@ -1,6 +1,10 @@
 export const cardstyle = {
   cardSx: {
-   padding:"16px"
+   padding:"16px",
+  //  borderRadius: "10px"
+  },
+  rediesSx:{
+    borderRadius: "10px"
   },
   stackSx:{
     paddingBottom:"10px"

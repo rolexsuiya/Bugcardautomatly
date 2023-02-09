@@ -1,69 +1,57 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
+
+import React from 'react'
 import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import { makeStyles } from "@mui/styles";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+const useStyles = makeStyles((theme) => ({
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
+    tab: {
+        '&.Mui-selected': {
+            color: '#000',
+        },
+
+    },
+
+    underTab: {
+        "& .MuiTabs-indicator": {
+            backgroundColor: "#0065e6",
+            height: "3px",
+            borderRadius: "12px 12px 0px 0px",
+
+        }
+    }
+
+
+}));
+export const SideTabs = ({ tabs = [], activeTab, handleChangeTab }) => {
+
+    const classes = useStyles();
+
+    const handleChange = (event, newValue) => {
+        handleChangeTab(newValue);
+    };
+
+    return (
+        <div>
+            <Box sx={{ width: '100%', typography: 'body1' }}>
+                <TabContext value={activeTab} >
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider', backgroundColor: "#fff", margin: "2px 0px", padding: "0px 30px" }}>
+                        <TabList className={classes.underTab} onChange={handleChange} aria-label="lab API tabs example">
+                            {
+                                tabs?.map(tab => (
+                                    <Tab className={classes.tab} label={tab.label} value={tab.value} />
+                                ))
+                            }
+                        </TabList>
+                    </Box>
+                    <TabPanel value={activeTab}>{tabs?.find(tab => tab.value === activeTab)?.body}</TabPanel>
+                </TabContext>
+            </Box>
+        </div>
+    )
 }
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-export default function BasicTabs() {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Where is the issue?" {...a11yProps(0)} />
-          <Tab label=" Why is this an issue?" {...a11yProps(1)} />
-        </Tabs>
-      </Box>
-      <TabPanel value={value} index={0}>
-      <Box sx={{height:"68vh",maxWidth:"70vw",border:1,borderColor:"#CBCBCB"}}>
-      Where is the issue?
-      </Box>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-      <Box sx={{height:"68vh",maxWidth:"70vw",border:1,borderColor:"#CBCBCB"}}>
-      Why is this an issue?
-      </Box> 
-      </TabPanel>
-    
-    </Box>
-  );
-}

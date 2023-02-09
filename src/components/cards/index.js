@@ -17,7 +17,7 @@ export default function StatCard(props) {
   } = props;
 
   return (
-    <Card>
+    <Card sx={cardstyle?.rediesSx}>
       <Box sx={cardstyle?.cardSx}>
         <Stack
           sx={cardstyle?.stackSx}

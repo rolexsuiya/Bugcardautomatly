@@ -8,30 +8,35 @@ import { Typography } from "@mui/material";
 import { RemoveComment } from "../removeComment";
 import { issuesStyle } from "./style";
 
-export default function Issues({handleClick=()=>{},}) {
+export default function Issues({ handleClick = () => {} }) {
   return (
     <Box>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={12} md={12} lg={3}>
-          <Paper sx={issuesStyle.paperBlock}>
-            <Filter />
-          </Paper>
-        </Grid>
+      <Box >
+        <Grid container>
+          <Grid item xs={12} sm={12} md={12} lg={3}>
+            <Box sx={issuesStyle.paperBlock}>
+              <Filter />
+            </Box>
+          </Grid>
 
-        <Grid item xs={12} sm={12} md={12} lg={9}  sx={issuesStyle.rootBlock}>
-          <Box sx={issuesStyle.iconOutlined}>
-            <Box>
-              <TextSnippetOutlinedIcon style={issuesStyle.pathIcon} />
+          <Grid item xs={12} sm={12} md={12} lg={9}>
+            <Box sx={issuesStyle.rootBlock}>
+              <Box sx={issuesStyle.iconOutlined}>
+                <Box>
+                  <TextSnippetOutlinedIcon style={issuesStyle.pathIcon} />
+                </Box>
+                <Box>
+                  <Typography sx={issuesStyle.pathText}>src/App.tsx</Typography>
+                </Box>
+              </Box>
+              <Box>
+                <RemoveComment handleClick={handleClick} />
+                <RemoveComment handleClick={handleClick} />
+              </Box>
             </Box>
-            <Box ml={2}>
-              <Typography sx={issuesStyle.pathText}>src/App.tsx</Typography>
-            </Box>
-          </Box>
-          <Box>
-            <RemoveComment handleClick={handleClick}/>
-          </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </Box>
     </Box>
   );
 }

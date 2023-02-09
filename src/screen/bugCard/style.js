@@ -10,7 +10,7 @@ export const bugStyle = {
     }},
 
     typeSx:{
-      fontSize: "15px",
+      fontSize: "14px",
       color:"black",
       textTransform:"capitalize",
       font: "normal normal medium 16px/25px Poppins",

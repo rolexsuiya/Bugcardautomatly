@@ -8,9 +8,9 @@ export const codeSmallSx = {
     boxSx:{
         background: "#FFFFFF 0% 0% no-repeat padding-box",
         opacity: "1",
-        padding: "19px",
+        padding: "15px",
         borderBottom: "1px solid #CBCBCB",
-        borderTop: "1px solid #CBCBCB"
+        
     },
     codeSx:{
         padding: "20px",

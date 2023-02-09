@@ -15,11 +15,11 @@ export const listStyle = {
   },
 
   cardTitle: {
-    fontSize: 15,
+    fontSize: "12px",
   },
 
   cardCount: {
     fontWeight: "500",
-    fontSize: 14,
+    fontSize: "12px",
   },
 };

@@ -7,20 +7,28 @@ import { LockIcon } from "../../components/icon";
 import { ProtectIcon } from "../../components/icon";
 import { ModeIcon } from "../../components/icon";
 import { NavIcon } from "../../components/icon/navIcon";
-import NavBar from "../../components/navBar";
+// import NavBar from "../../components/navBar";
 import { bugStyle } from "./style";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { useState } from "react";
 import DropDown from "../../components/dropDown";
 import VerBar from "../../components/verBar";
-import DownloadIcon from '@mui/icons-material/Download';
+import DownloadIcon from "@mui/icons-material/Download";
 import Issues from "../../components/issues/issues";
 import CodeSmall from "../Issue";
+import NavBar from "../../components/navBar";
 const BugCard = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [open, setOpen] = useState(true);
 
- 
+  const navData = {
+    icons: <NavIcon />,
+    headTitle: "Project Name",
+    downloadIcon: <DownloadIcon sx={bugStyle.iconSx} />,
+    homeIcon: <HomeOutlinedIcon sx={bugStyle.iconSx} />,
+    downArrow: <DropDown />,
+  };
+
   const verData = {
     overView: "OverView Name V.2",
   };
@@ -81,14 +89,13 @@ const BugCard = () => {
       number: "672",
     },
   ];
-const handleClick =()=>{
-  
-  setOpen(false)
-}
+  const handleClick = () => {
+    setOpen(false);
+  };
   const tabs = [
     {
       label: (
-        <Typography variant="body1" sx={bugStyle.typeSx}>
+        <Typography sx={bugStyle.typeSx}>
           Overview
         </Typography>
       ),
@@ -124,10 +131,8 @@ const handleClick =()=>{
     {
       label: (
         <Typography
-          variant="body1"
           sx={bugStyle.typeSx}
-          color="black"
-          textTransform="capitalize"
+
         >
           Issues
         </Typography>
@@ -135,17 +140,11 @@ const handleClick =()=>{
       value: 2,
       body: (
         <div>
-          
-          
-          
+          <VerBar issueData={issueData} />
           <Box>
             
-            <VerBar issueData={issueData} />
-          {open ?  <Issues handleClick={handleClick}/>            
-             :  <CodeSmall/>}
-
+            {open ? <Issues handleClick={handleClick} /> : <CodeSmall setOpen={setOpen}/>}
           </Box>
-          
         </div>
       ),
     },
@@ -154,13 +153,13 @@ const handleClick =()=>{
   return (
     <>
       <Box>
-        
+        {/* <NavBar/> */}
+        <NavBar navData={navData} />
         <DataTabs
           tabs={tabs}
           activeTab={activeTab}
           handleChangeTab={(val) => setActiveTab(val)}
         />
-        
       </Box>
     </>
   );

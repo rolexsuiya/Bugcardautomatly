@@ -1,42 +1,55 @@
-import React from "react";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import { Filter } from "../filters/filter";
-import TextSnippetOutlinedIcon from "@mui/icons-material/TextSnippetOutlined";
 import { Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import React from "react";
+import useWindowDimensions from "../../hooks";
+import { Filter } from "../filters/filter";
+import { PathIcon } from "../icon/fileIcon";
 import { RemoveComment } from "../removeComment";
 import { issuesStyle } from "./style";
 
 export default function Issues({ handleClick = () => {} }) {
+  const size = useWindowDimensions();
+
   return (
     <Box>
-      <Box >
-        <Grid container>
-          <Grid item xs={12} sm={12} md={12} lg={3}>
-            <Box sx={issuesStyle.paperBlock}>
-              <Filter />
-            </Box>
-          </Grid>
+      <Grid container>
+        <Grid item xs={12} sm={12} md={12} lg={3}>
+          <Box
+            sx={{
+              ...issuesStyle.paperBlock,
+              height: size?.height - 136,
+              overflow: "overlay",
+            }}
+          >
+            <Filter />
+          </Box>
+        </Grid>
 
-          <Grid item xs={12} sm={12} md={12} lg={9}>
-            <Box sx={issuesStyle.rootBlock}>
-              <Box sx={issuesStyle.iconOutlined}>
-                <Box>
-                  <TextSnippetOutlinedIcon style={issuesStyle.pathIcon} />
-                </Box>
-                <Box>
-                  <Typography sx={issuesStyle.pathText}>src/App.tsx</Typography>
-                </Box>
+        <Grid item xs={12} sm={12} md={12} lg={9}>
+          <Box
+            sx={{
+              ...issuesStyle.rootBlock,
+              height: size?.height - 178,
+              overflow: "overlay",
+            }}
+          >
+            <Box sx={issuesStyle.iconOutlined}>
+              <Box sx={issuesStyle.pathIcon}>
+                <PathIcon />
               </Box>
               <Box>
-                <RemoveComment handleClick={handleClick} />
-                <RemoveComment handleClick={handleClick} />
+                <Typography sx={issuesStyle.pathText}>src/App.tsx</Typography>
               </Box>
             </Box>
-          </Grid>
+            <Box>
+              <RemoveComment handleClick={handleClick} />
+              <RemoveComment handleClick={handleClick} />
+              <RemoveComment handleClick={handleClick} />
+            </Box>
+          </Box>
         </Grid>
-      </Box>
+      </Grid>
     </Box>
   );
 }

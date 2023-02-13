@@ -7,6 +7,7 @@ export const AppStyle = {
     boxShadow: "0px 3px 6px #00000029",
     opacity: 1,
     padding: "10px 14px",
+    position: "relative"
   },
   appType: {
     fontWeight: "600",
@@ -17,6 +18,7 @@ export const AppStyle = {
   },
   iconSx: {
     display: "flex",
+    alignItems: "center",
     gap: "10px",
   },
 };

@@ -1,27 +1,27 @@
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { Box, Grid, Typography } from "@mui/material";
+import { useState } from "react";
 import StatCard from "../../components/cards";
 import Chart from "../../components/chartComponent/chartComponent";
 import { DataTabs } from "../../components/dataTabs";
-import { BugIcon } from "../../components/icon";
-import { LockIcon } from "../../components/icon";
-import { ProtectIcon } from "../../components/icon";
-import { ModeIcon } from "../../components/icon";
-import { NavIcon } from "../../components/icon/navIcon";
-import { bugStyle } from "./style";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import { useState } from "react";
 import DropDown from "../../components/dropDown";
-import VerBar from "../../components/verBar";
-import DownloadIcon from "@mui/icons-material/Download";
+import { BugIcon, LockIcon, ModeIcon, ProtectIcon } from "../../components/icon";
+import { NavIcon } from "../../components/icon/navIcon";
 import Issues from "../../components/issues/issues";
-import CodeSmall from "../Issue";
 import NavBar from "../../components/navBar";
+import VerBar from "../../components/verBar";
+import useWindowDimensions from '../../hooks';
+import CodeSmall from "../Issue";
+import { bugStyle } from "./style";
+
+
 
 const navData = {
   icons: <NavIcon />,
   headTitle: "Project Name",
-  downloadIcon: <DownloadIcon sx={bugStyle.iconSx} />,
-  homeIcon: <HomeOutlinedIcon sx={bugStyle.iconSx} />,
+  downloadIcon: <FileDownloadIcon sx={bugStyle.iconSx} />,
+  homeIcon: <HomeOutlinedIcon  sx={bugStyle.iconHomeSx}/>,
   downArrow: <DropDown />,
 };
 
@@ -36,7 +36,7 @@ const issueData = {
 const cardData = [
   {
     count: "40",
-    icon: <BugIcon />,
+    icon: <BugIcon height={"18px"} width={"20px"}/>,
     subText: "Bugs",
     footerText: "Reliability",
     avatar: "C",
@@ -46,7 +46,7 @@ const cardData = [
   },
   {
     count: "0",
-    icon: <LockIcon />,
+    icon: <LockIcon height={"23px"} width={"18px"}/>,
     subText: "Vulnerabilities",
     footerText: "Security",
     color: {
@@ -58,7 +58,7 @@ const cardData = [
   },
   {
     count: "0",
-    icon: <ProtectIcon />,
+    icon: <ProtectIcon width={"18px"} height={"22px"}/>,
     subText: "Security Hotspots",
     footerText: "Security Review",
     avatar: "A",
@@ -80,7 +80,7 @@ const cardData = [
       numberColor: "#0F9CBF",
     },
     avatar: "A",
-    data: <ModeIcon />,
+    data: <ModeIcon width={"18px"} height={"18px"}/>,
     rightText: "Code Smells",
     number: "672",
   },
@@ -89,6 +89,7 @@ const cardData = [
 const BugCard = () => {
   const [activeTab, setActiveTab] = useState(1);
   const [open, setOpen] = useState(true);
+  const size = useWindowDimensions();
 
   const handleClick = () => {
     setOpen(false);
@@ -99,8 +100,8 @@ const BugCard = () => {
       value: 1,
       body: (
         <div>
-          <VerBar verData={verData} />
-          <Box sx={bugStyle.outSX}>
+          {/* <VerBar verData={verData} /> */}
+          <Box sx={{...bugStyle.outSX, height:size?.height - 164,}}>
             <Grid container spacing={1.8}>
               {cardData.map((val, i) => (
                 <Grid item xs={12} sm={6} md={6} lg={3}>

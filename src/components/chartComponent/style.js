@@ -4,11 +4,18 @@ export const chartStyle = {
     borderWidth: "2px",
   },
   rediesSX:{
+    boxShadow: "0px 3px 6px #00000014",
+    border: "0.5px solid #CBCBCB",
     borderRadius: "10px",
+    opacity: 1,
+    background: "#FFFFFF 0% 0% no-repeat padding-box"
   },
   chartSX:{
+    boxShadow: "0px 3px 6px #00000014",
+    border: "0.1px solid #CBCBCB",
     borderRadius: "10px",
-    width:"100%",
+    opacity: 1,
+    background: "#FFFFFF 0% 0% no-repeat padding-box",
     height:"100%"
   },
   cercleBoder: {
@@ -34,21 +41,27 @@ export const chartStyle = {
     borderRadius: "10px",
   },
   percetSx: {
-    fontSize: 22,
+    fontSize: "26px",
     color: "#F3A953",
-    fontWeight: "800",
+    fontWeight: "600",
   },
 
   subTitle: {
-    fontSize: 16,
+    fontSize: "16px",
     color: "#18283E",
     fontWeight: "600",
   },
 
   horizandalBar: {
     borderBottom: "1.5px solid #707070",
+    marginTop:"10px"
   },
-
+  gapSx:{
+    marginTop:"8px"
+  },
+  padSX:{
+    padding:"15px 15px 46px 15px"
+  },
   subTitle2: {
     fontSize: 25,
     color: "#0063E7",

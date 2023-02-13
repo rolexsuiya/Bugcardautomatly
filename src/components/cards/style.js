@@ -3,17 +3,31 @@ export const cardstyle = {
     padding: "16px",
   },
   rediesSx: {
+    boxShadow: "0px 3px 6px #00000014",
+    border: "0.5px solid #CBCBCB",
     borderRadius: "10px",
+    opacity: 1,
   },
   stackSx: {
     paddingBottom: "10px",
+
   },
   boxSx: {
     display: "flex",
+    gap: "15%",
+    whiteSpace: "nowrap",
+    flexDirection: "row",
+    alignContent: "flexStart",
+    alignItems: "center",
+  },
+  boxxxSx: {
+    display: "flex",
     gap: "8%",
     whiteSpace: "nowrap",
+    flexDirection: "row",
+    alignContent: "flexStart",
+    alignItems: "center",
   },
-
   cardAvater: {
     bgcolor: "#E0C527",
     height: "22px",
@@ -32,6 +46,7 @@ export const cardstyle = {
     backgroundColor: "#F9F4D5",
     display: "flex",
     justifyContent: "center",
+    alignItems: "center",
     padding: "8px",
     gap: "3%",
   },

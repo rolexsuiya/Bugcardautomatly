@@ -6,6 +6,8 @@ import CodeBox from "../../components/codeBox";
 import { codeSmallSx } from "./style";
 import { CricleIcon } from "../../components/icon/cricleIcon";
 import { RemoveError } from "../../components/removeError/removeError";
+import { Typography } from "@mui/material";
+import useWindowDimensions from "../../hooks";
 
 const boxData = [
   {
@@ -32,10 +34,62 @@ const boxData = [
     boxText: "Remove this unused import of 'config'.",
     icon: <CricleIcon />,
     subText: "Code Smell",
+  },{
+    id: "5",
+    boxText: "Remove this commented out code",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "6",
+
+    boxText: "Remove this unused import of 'RequireAuth'.",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "7",
+    boxText: "Rename this file to 'graphqlReq'",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "8",
+    boxText: "Remove this unused import of 'config'.",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "9",
+    boxText: "Remove this commented out code",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "10",
+
+    boxText: "Remove this unused import of 'RequireAuth'.",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "11",
+    boxText: "Rename this file to 'graphqlReq'",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
+  },
+  {
+    id: "12",
+    boxText: "Remove this unused import of 'config'.",
+    icon: <CricleIcon />,
+    subText: "Code Smell",
   },
 ];
 
 export default function CodeSmall(props) {
+
+  const size = useWindowDimensions()
+
   const { setOpen } = props;
 
   const [active, setActive] = useState(false);
@@ -52,9 +106,15 @@ export default function CodeSmall(props) {
   return (
     <Grid container>
       <Grid item xs={12} sm={12} md={12} lg={3}>
-        <Box sx={codeSmallSx.textBoxSx}>
-          <Box sx={codeSmallSx.boxSx} onClick={() => handleRoute()}>
-            <NavIcon />
+        <Box sx={{...codeSmallSx.textBoxSx, height:size.height-136, overflow:"overlay"}}>
+          <Box sx={codeSmallSx.boxSx}>
+            <Typography
+              component={"span"}
+              sx={codeSmallSx.cursorSX}
+              onClick={() => handleRoute()}
+            >
+              <NavIcon />
+            </Typography>
           </Box>
           <Box sx={codeSmallSx.codeSx}>
             {boxData.map((val, i) => (

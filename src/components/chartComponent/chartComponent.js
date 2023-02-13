@@ -1,4 +1,4 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Stack } from "@mui/system";
 import React from "react";
@@ -32,43 +32,43 @@ export const Chart = () => {
       <Grid container spacing={1.8}>
         {/*Dublicated  Blocks */}
         <Grid item xs={12} sm={3} md={4} lg={3}>
-          <Paper elevation={2} sx={chartStyle.rediesSX}>
-            <Stack spacing={2} p={3}>
+          <Box sx={chartStyle.rediesSX}>
+            <Stack sx={chartStyle.padSX}>
               <Box>
                 <Box sx={chartStyle.cercleBoder}>
                   <Box sx={chartStyle.cercleColor}></Box>
                 </Box>
               </Box>
 
-              <Box>
+              <Box sx={chartStyle.gapSx}>
                 <Typography sx={chartStyle.percetSx}>
                   {midcardValue.number}
                 </Typography>
               </Box>
 
-              <Box>
+              <Box sx={chartStyle.gapSx}>
                 <Typography sx={chartStyle.subTitle}>
                   {midcardValue.subTitle}
                 </Typography>
               </Box>
               <Box sx={chartStyle.horizandalBar}></Box>
-              <Box>
+              <Box sx={chartStyle.gapSx}>
                 <Typography sx={chartStyle.subTitle2}>
                   {midcardValue.subNum}
                 </Typography>
               </Box>
-              <Box>
+              <Box sx={chartStyle.gapSx}>
                 <Typography sx={chartStyle.subTitle}>
                   {midcardValue.dupText}
                 </Typography>
               </Box>
             </Stack>
-          </Paper>
+          </Box>
         </Grid>
 
         {/*Activity Chats */}
         <Grid item xs={12} sm={9} md={8} lg={6}>
-          <Paper sx={chartStyle.chartSX} elevation={2}>
+          <Box sx={chartStyle.chartSX}>
             <Box>
               <Grid
                 height={"100%"}
@@ -83,7 +83,7 @@ export const Chart = () => {
                 <RenderLineChart data={data} />
               </Box>
             </Box>
-          </Paper>
+          </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={0} lg={3}></Grid>
       </Grid>

@@ -4,29 +4,27 @@ import { CricleIcon } from "../icon/cricleIcon";
 import { ListNested } from "../listNested/listNested";
 import { removeStyle } from "./styles";
 
-export const RemoveComment = ({ handleClick=()=>false,title = "Remove this commented out code" }) => {
-  
+export const RemoveComment = ({
+  handleClick = () => false,
+  title = "Remove this commented out code",
+}) => {
   return (
-    <Box sx={removeStyle.paperBlock}>
-      <Box sx={removeStyle.flexBlock} onClick={handleClick}>
+    <Box sx={removeStyle.paperBlock} onClick={handleClick}>
+      <Box sx={removeStyle.flexBlock}>
         <Box>
-          <Typography sx={removeStyle.typeText}>
-            {title}
-          </Typography>
+          <Typography sx={removeStyle.typeText}>{title}</Typography>
         </Box>
         <Box sx={removeStyle.centerBlock}>
           <Box sx={removeStyle.dotIcon}></Box>
-          <Typography style={removeStyle.lineText}>
-            L29
-          </Typography>
+          <Typography style={removeStyle.lineText}>L29</Typography>
         </Box>
       </Box>
 
       <Box sx={removeStyle.centerBlockSX}>
         <Box sx={removeStyle.removeBottomBlock}>
-         <CricleIcon/>
+          <CricleIcon />
           <ListNested
-          onClickNav={()=>handleClick()}
+            onClickNav={() => handleClick()}
             sxButton={removeStyle.dropList}
             titlePrimary={" Code Smell"}
             sxTitle={removeStyle.codeSmellText}
@@ -41,7 +39,6 @@ export const RemoveComment = ({ handleClick=()=>false,title = "Remove this comme
             titlePrimary={" Major"}
             sxTitle={removeStyle.codeSmellText}
           />
-          <Box sx={removeStyle.dotIcon}></Box>
         </Box>
       </Box>
     </Box>

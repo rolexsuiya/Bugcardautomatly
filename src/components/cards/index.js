@@ -30,9 +30,9 @@ export default function StatCard(props) {
             >
               {count}
             </Typography>
-            <Box sx={cardstyle?.numberSx}>{icon}</Box>
+            <Box sx={{marginTop:"4px"}}>{icon}</Box>
           </Box>
-          <Box sx={cardstyle?.boxSx}>
+          <Box sx={cardstyle?.boxxxSx}>
             <Typography
               sx={[cardstyle?.numberSx, { color: color?.numberColor }]}
             >

@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
+import useWindowDimensions from "../../hooks";
 import { removeStyle } from "./style";
 import { SideTabs } from "./tabs";
 
@@ -13,18 +14,20 @@ const data = {
 
 export const RemoveError = () => {
   const [activeTab, setActiveTab] = useState(1);
+  const size = useWindowDimensions();
+  
 
   const tabs = [
     {
       label: (
         <Typography sx={removeStyle.typoLableSX} gutterBottom>
-          {data.typeText}
+          {data.subText}
         </Typography>
       ),
       value: 1,
       body: (
         <div>
-          <Box sx={removeStyle.indiseBox}>{data.subText}</Box>
+          <Box sx={{...removeStyle.indiseBox, height:size.height-357, overflow:"overlay"}}>{data.subText}</Box>
         </div>
       ),
     },
@@ -37,14 +40,14 @@ export const RemoveError = () => {
       value: 2,
       body: (
         <div>
-          <Box sx={removeStyle.indiseBox}>{data.subText}</Box>
+          <Box sx={{...removeStyle.indiseBox, height:size.height-357, overflow:"overlay"}}>{data.typeText}</Box>
         </div>
       ),
     },
   ];
   return (
     <>
-      <Box sx={removeStyle.rootBlock}>
+      <Box sx={{...removeStyle.rootBlock, height:size.height-176, overflow:"overlay"}}>
         <Box>
           <Typography sx={removeStyle.titleText}>{data.title}</Typography>
           <Typography sx={removeStyle.subText}>{data.subTitle} </Typography>

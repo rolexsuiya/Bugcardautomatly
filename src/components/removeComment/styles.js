@@ -6,7 +6,8 @@ export const removeStyle = {
     borderRadius: "10px",
     opacity: 1,
     padding: "10px",
-    marginBottom:"20px"
+    marginBottom:"20px",
+    cursor: "pointer"
   },
 
   centerBlock: {

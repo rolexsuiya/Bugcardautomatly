@@ -17,7 +17,7 @@ export const SelectInput = () => {
       onChange={handleChange}
       sx={chartStyle.selectSx}
     >
-      <MenuItem value={0}>Bugss</MenuItem>
+      <MenuItem value={0}>Bugs</MenuItem>
       <MenuItem value={20}>Code Smells</MenuItem>
       <MenuItem value={30}>Vulnerabilities</MenuItem>
     </Select>

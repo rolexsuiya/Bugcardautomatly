@@ -85,10 +85,10 @@ const Types = () => {
 
 const Severitys = () => {
   return (
-    <Grid container justifyContent={"space-between"}>
+    <Grid container justifyContent={"space-between"} p={1} mt={1} spacing={1}>
       {Severity.map((item) => (
         <Grid item xs={12} md={12} lg={6}>
-          <Box sx={listStyle.childCard} width={{ md: "10px" }} mt={1}>
+          <Box sx={listStyle.childCard} >
             <Typography color={"#3D4755"} style={listStyle.cardTitle}>
               {item.title}
             </Typography>

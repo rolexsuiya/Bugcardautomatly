@@ -1,20 +1,20 @@
 export const issuesStyle = {
   rootBlock: {
-    height:"100vh",
-    padding:"10px 20px",
+    padding: "20px 20px",
     backgroundColor: "#F6F6F6",
   },
   paperBlock: {
-    height: {sx:"30vh",sm:"40vh",md:"50vh",lg:"100vh"},
-
+    backgroundColor: "#FFFFFF",
+    boxShadow: "0px 3px 6px #00000014",
+    opacity: 1,
+    position: "relative"
   },
 
   iconOutlined: {
     display: "flex",
-    alignItems: "center",
-    gap:"5px",
-    marginBottom:"10px"
-    // p: 1.4,
+    alignItems: "flex-start",
+    gap: "3px",
+    marginBottom: "5px",
   },
 
   pathIcon: {
@@ -22,9 +22,11 @@ export const issuesStyle = {
     width: "20px",
     height: "30px",
     color: "#0063E7",
+    cursor: "pointer",
   },
   pathText: {
     color: "#0063E7",
-    fontSize:"14px"
+    fontSize: "14px",
+    cursor: "pointer",
   },
 };

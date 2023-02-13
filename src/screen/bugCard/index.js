@@ -25,10 +25,6 @@ const navData = {
   downArrow: <DropDown />,
 };
 
-const verData = {
-  overView: "OverView Name V.2",
-};
-
 const issueData = {
   issue: "Issue Name V.3",
 };
@@ -57,6 +53,18 @@ const cardData = [
     avatar: "A",
   },
   {
+    footerText: "Maintainability",
+    color: {
+      backgroundColor: "#21E067",
+      color: "#D5F9E9",
+      numberColor: "#0F9CBF",
+    },
+    avatar: "A",
+    icon: <ModeIcon width={"18px"} height={"18px"}/>,
+    subText: "Code Smells",
+    count: "672",
+  },
+  {
     count: "0",
     icon: <ProtectIcon width={"18px"} height={"22px"}/>,
     subText: "Security Hotspots",
@@ -70,20 +78,7 @@ const cardData = [
     data: "-",
     rightText: "Reviewed",
   },
-  {
-    count: "5d 4h",
-    subText: "Debt",
-    footerText: "Maintainability",
-    color: {
-      backgroundColor: "#21E067",
-      color: "#D5F9E9",
-      numberColor: "#0F9CBF",
-    },
-    avatar: "A",
-    data: <ModeIcon width={"18px"} height={"18px"}/>,
-    rightText: "Code Smells",
-    number: "672",
-  },
+  
 ];
 
 const BugCard = () => {
@@ -100,7 +95,6 @@ const BugCard = () => {
       value: 1,
       body: (
         <div>
-          {/* <VerBar verData={verData} /> */}
           <Box sx={{...bugStyle.outSX, height:size?.height - 164,}}>
             <Grid container spacing={1.8}>
               {cardData.map((val, i) => (

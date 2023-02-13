@@ -20,8 +20,7 @@ export const codeSmallSx = {
     codeSx:{
         padding: "20px",
         cursor:"pointer",
-        // height:"60vh",
-        // overflow:"auto"
+
     },
     mapBoxSx:{
         marginBottom:"12px",

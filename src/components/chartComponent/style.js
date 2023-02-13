@@ -3,12 +3,16 @@ export const chartStyle = {
     backgroundColor: "#ffff",
     borderWidth: "2px",
   },
+  lineChart:{
+    height: { sm: 235, md: 190 ,lg:170 },
+  },
   rediesSX:{
     boxShadow: "0px 3px 6px #00000014",
     border: "0.5px solid #CBCBCB",
     borderRadius: "10px",
     opacity: 1,
-    background: "#FFFFFF 0% 0% no-repeat padding-box"
+    background: "#FFFFFF 0% 0% no-repeat padding-box",
+    height: "100%"
   },
   chartSX:{
     boxShadow: "0px 3px 6px #00000014",
@@ -39,6 +43,7 @@ export const chartStyle = {
     width: "10rem",
     height: "2.5rem",
     borderRadius: "10px",
+    background:"red"
   },
   percetSx: {
     fontSize: "26px",

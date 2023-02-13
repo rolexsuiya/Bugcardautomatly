@@ -1,40 +1,72 @@
 import {
-  LineChart,
-  Line,
-  CartesianGrid,
-  YAxis,
+  CategoryScale,
+  Chart as ChartJS,
   Legend,
-  XAxis,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
   Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+} from "chart.js";
+import React from "react";
+import { Line } from "react-chartjs-2";
 
-export const RenderLineChart = (props) => {
-  const { data = [] } = props;
-
-  const renderColorfulLegendText = (value, entry) => {
-    const { color } = entry;
-    return <span style={{ color:"black", margin:5}}>{value}</span>
-  }
-
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+export const RenderLineChart = ({ data }) => {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    type: "line",
+    plugins: {
+      legend: {
+        display: true,
+        position: "bottom",
+        labels: {
+          boxWidth: 10,
+          boxHeight: 5,
+          usePointStyle: true,
+          fontSize: "12px",
+          color: "#101010",
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          display: true,
+          color: "#101010",
+        },
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        ticks: {
+          display: true,
+          color: "#101010",
+          stepSize: 200,
+        },
+        // to remove the y-axis grid
+        grid: {
+          display: true,
+        },
+        border: {
+          dash: [2, 2],
+        },
+      },
+    },
+  };
   return (
     <>
-      <ResponsiveContainer >
-        <LineChart
-          data={data}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="1 3" vertical={false} />
-          <XAxis dataKey="name" axisLine={false}/>
-          <YAxis axisLine={false}/>
-          <Tooltip activeDot={false} />
-          <Legend iconType="circle" iconSize={10}  formatter={renderColorfulLegendText}/>
-
-          <Line type="linear" dataKey="Bugs" stroke="#36A2EB" />
-          <Line type="linear" dataKey="CodeSmells" stroke="#FF9F40" />
-          <Line type="linear" dataKey="Vulnerabilities" stroke="#FF6384" />
-        </LineChart>
-      </ResponsiveContainer>
+      <Line options={options} data={data} />
     </>
   );
 };

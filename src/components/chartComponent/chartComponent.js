@@ -6,14 +6,34 @@ import { RenderLineChart } from "../lineChart";
 import { SelectInput } from "../select";
 import { chartStyle } from "./style";
 
-const data = [
-  { name: " ", Wed17: 30, CodeSmells: 40, Vulnerabilities: 60 },
-  { name: "Wed 17", Bugs: 400, CodeSmells: 800, Vulnerabilities: 400 },
-  { name: "Fri 19", Bugs: 400, CodeSmells: 100, Vulnerabilities: 500 },
-  { name: "Sun 21", Bugs: 400, CodeSmells: 500, Vulnerabilities: 100 },
-  { name: "Tue 23", Bugs: 400, CodeSmells: 300, Vulnerabilities: 200 },
-  { name: "Thu 25", Bugs: 400, CodeSmells: 400, Vulnerabilities: 700 },
-];
+const labels = ["Wed 17", "Fri 19", "Sun 21", "Tue 23", "Thu 25"];
+const data = {
+  labels,
+  datasets: [
+    {
+      label: "Bugs",
+      data: [100, 200, 400, 600, 800],
+      backgroundColor: "#36A2EB",
+      borderColor: "#36A2EB",
+      borderWidth: 1,
+      yAxisID: "y",
+    },
+    {
+      label: "Code Smells",
+      data: [800, 400, 600, 200, 100],
+      backgroundColor: "#FF9F40",
+      borderColor: "#FF9F40",
+      borderWidth: 1,
+    },
+    {
+      label: "Vulnerabilities",
+      data: [400, 600, 800, 200, 500],
+      backgroundColor: "#FF6384",
+      borderColor: "#FF6384",
+      borderWidth: 1,
+    },
+  ],
+};
 
 const midcardValue = {
   number: "18.6%",
@@ -25,6 +45,12 @@ const midcardValue = {
 const chartCard = {
   title: "Activity",
 };
+
+const selectOption = [
+  { label: "Bugs" },
+  { label: "code Smells" },
+  { label: "Vulnerabilites" },
+];
 
 export const Chart = () => {
   return (
@@ -77,9 +103,9 @@ export const Chart = () => {
                 p={2}
               >
                 <Typography fontWeight={600}>{chartCard.title}</Typography>
-                <SelectInput />
+                <SelectInput options={selectOption} placeholder="Issues" selectSx={chartCard.selectSx}/>
               </Grid>
-              <Box height={{ xs: "70vw", sm: "33vw", md: "14vw" }}>
+              <Box p={2} sx={chartStyle.lineChart}>
                 <RenderLineChart data={data} />
               </Box>
             </Box>

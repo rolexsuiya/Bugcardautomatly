@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import { Box } from "@mui/material";
+import Collapse from "@mui/material/Collapse";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import { PropTypes } from "prop-types";
-import { Box } from "@mui/material";
+import React, { useState } from "react";
 
 export const ListNested = ({
   titlePrimary,
@@ -40,11 +39,4 @@ export const ListNested = ({
         </Box>
     </>
   );
-};
-
-const propTypes = {
-  sxButton: PropTypes.object,
-  sxTitle: PropTypes.object,
-  titlePrimary: PropTypes.string,
-  sxColaps: PropTypes.object,
 };

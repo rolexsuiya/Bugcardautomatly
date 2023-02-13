@@ -1,26 +1,42 @@
-import { MenuItem, Select } from "@mui/material";
+import { Autocomplete, TextField } from "@mui/material";
 import React, { useState } from "react";
-import { chartStyle } from "../chartComponent/style";
-
-export const SelectInput = () => {
-    const [select, setSelect] = useState("");
-
-    const handleChange = (e) => {
-      setSelect(e.target.value);
-    };
+export const SelectInput = ({ selectSx, placeholder, options }) => {
+  const [select, setSelect] = useState("");
+  const handleChange = (e) => {
+    setSelect(e.target.value);
+  };
   return (
-    <Select
-      labelId="demo-simple-select-label"
-      id="demo-simple-select"
-      placeholder="Issues"
-      value={select}
-      onChange={handleChange}
-      sx={chartStyle.selectSx}
-    >
-      <MenuItem value={0}>Bugs</MenuItem>
-      <MenuItem value={20}>Code Smells</MenuItem>
-      <MenuItem value={30}>Vulnerabilities</MenuItem>
-    </Select>
+    <>
+      <Autocomplete
+        disablePortal
+        id="combo-box-demo"
+        options={options}
+        sx={{
+          width: "157px",
+          height: "36px",
+          "&.MuiAutocomplete-root .MuiOutlinedInput-root": {
+            fontSize: "14px",
+            borderRadius: "8px",
+          },
+        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            placeholder={placeholder}
+            value={select}
+            onChange={handleChange}
+            size={"small"}
+            sx={{
+              width: "157px",
+              height: "36px",
+              opacity: 1,
+              "&.MuiAutocomplete-root .MuiOutlinedInput-root": {
+                fontSize: "14px",
+              },
+            }}
+          />
+        )}
+      />
+    </>
   );
 };
-

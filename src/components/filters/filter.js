@@ -13,6 +13,8 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import { CricleIcon } from "../icon/cricleIcon";
+import { DefaulBugIcon, DefaultLockIcon } from "../icon/icon";
 import { ListNested } from "../listNested/listNested";
 import { listStyle } from "../listNested/style";
 import { filterStyle } from "./style";
@@ -20,17 +22,17 @@ import { filterStyle } from "./style";
 const Type = [
   {
     titlePrimary: "Bug",
-    icon: <PestControlSharpIcon />,
+    icon: <DefaulBugIcon />,
     count: "05",
   },
   {
     titlePrimary: "Vulnerabilitiy",
-    icon: <LockOpenRoundedIcon />,
+    icon: <DefaultLockIcon />,
     count: "00",
   },
   {
     titlePrimary: "Code Smells",
-    icon: <SportsSoccerOutlinedIcon />,
+    icon: <CricleIcon />,
     count: "00",
   },
 ];
